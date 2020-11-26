@@ -580,8 +580,8 @@ var controllers = {
     getImageFile: (req, res) => {
 
         var image_file = req.params.imageFile;
-        var path_file = './upload/users/' + image_file;
-
+        var path_file = './upload/ users' + image_file;
+        
 
         fss.exists(path_file, (exists) => {
             if (exists) {

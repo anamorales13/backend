@@ -1,0 +1,14 @@
+ <div className="form-login">
+                                    <input type="text" name="usuario" ref={this.usuarioRef} onChange={this.changeState} placeholder="Usuario*" className="form-login-input" />
+                                    {this.validator.message('usuario', this.state.alumno.usuario, 'required')}
+                                </div>
+
+  <div className="form-login">
+                                    <input type="password" name="password" ref={this.passwordRef} onChange={this.changeState} placeholder="Contraseña*" className="form-login-input" />
+                                    {this.validator.message('password', this.state.alumno.password, 'required')}
+                                </div>
+
+  <div className="form-login">
+                                    <input type="text" name="uniDestino" ref={this.uniDestinoRef} onChange={this.changeState} placeholder="Universidad de Destino" className="form-login-input" />
+                                    {this.validator.message('uniDestino', this.state.alumno.uniDestino, 'alpha')}
+                                </div>

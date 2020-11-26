@@ -1,0 +1,41 @@
+video del chat: https://www.youtube.com/watch?v=ZwFA3YMfkoc
+
+TODO SOBRE EL CHAT
+
+para la memoria mirar la documentacion de sockect
+
+-emitting events
+
+
+
+
+SUBIR A HEROKU:
+
+1. consola de comando nos movemos al server (backend)
+
+heroku login
+
+
+
+¿que es open source?
+
+
+Toda web tiene 3 conceptos básicos:
+HTML: es la estructura, la información de la pagina web
+CSS: es el maquillaje para HTML, para que la informacion que está en HTML se vea bonito
+JavaScript: el que le da vida a la web.
+Siempre nos han enseñado que estos tres conceptos deben de ir separados,  pero en React
+introducimos estos 3 conceptos en un mismo componente.
+
+
+REACT:
+https://www.drauta.com/que-es-react-y-para-que-sirve
+https://es.reactjs.org/
+
+¿QUÉ ES DOM? - El DOM es la estructura de objetos que genera el navegador cuando se carga un documento y 
+se puede alterar mediante Javascript para cambiar dinámicamente los contenidos y aspecto de la página.
+DOM virtual es que es básicamente una representación del DOM pero en memoria.
+
+Buena información sobre DOM: https://desarrolloweb.com/articulos/que-es-react-motivos-uso.html
+
+

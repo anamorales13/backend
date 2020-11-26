@@ -1,0 +1,25 @@
+
+                   {/*  <h2>  ---- NUEVO DOCUMENTO ----</h2>
+                    <form onSubmit={this.saveDocument}>
+
+                        <div >
+
+                            <label for="tittle">Titulo:</label>
+                            <input type="text" id="tittle" name="tittle" ref={this.titleRef} />
+
+                        </div>
+                        <div>
+                            <label htmlFor="content"> Comentario: </label>
+                            <textarea name="content" ref={this.contentRef}></textarea>
+                        </div>
+                        <div >
+                            <label htmlFor="file0"> URL: </label>
+                            <input type="file" name="file0" onChange={this.fileChange} ref={this.fileRef} />
+
+                        </div>
+
+                        <input type="submit" value="SUBIR" className="btn" ></input>
+                        
+                    </form>
+                </div>
+                   </aside>*/}
