@@ -371,6 +371,7 @@ var controllers = {
         var file_name = file_split[2];
         var extension_split = file_name.split('\.');
         var file_ext = extension_split[1];
+        console.log("nombre:" + file_name);
 
         /* if (file_ext != 'png' && file_ext != "jpg" && file_ext != "jpeg" && file_ext != "gif") {
               fs.unlink(file_path, (err) => {  //eliminar un fichero
@@ -393,7 +394,7 @@ var controllers = {
                 });
             }
             documento = documentoUpdated;
-            documento.url = file_name;
+            documento.setUrl(file_name);
 
             documento.save((errn, docStored) => {
                 if (errn || !docStored) {
