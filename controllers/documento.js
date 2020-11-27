@@ -35,10 +35,16 @@ var controllers = {
 
             if (params.url) {
                 var file = params.url;
-                var file_split = file.split('\.');
-                var file_ext = file_split[1];
+                var file_split = file.split('\\');
+                
+                var file_ext_split = file_split[2].split('\.');
+                var file_ext= file_ext_split[1];
+                var file_name=file_ext_split[0];
+                
                 console.log("url"+ params.url);
                 console.log("file_ext:" + file_ext);
+                console.log("file_name:" + file_name);
+                
 
 
                 if (file_ext == "txt" || file_ext == "doc" || file_ext == "docx") {
@@ -55,7 +61,7 @@ var controllers = {
                 }
 
 
-                documento.url = params.url;
+                documento.url = file_name;
             } else {
                 //documento.url = '../assets/images/default.png';
                 documento.tipoDocumento = "default.png";
