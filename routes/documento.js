@@ -12,7 +12,7 @@ var md_upload = multipart({ uploadDir: './upload/documents'});
 
 //RUTAS VALIDAS
 
-routerDoc.post('/saveDoc', DocumentoController.save);
+routerDoc.post('/saveDoc',md_upload, DocumentoController.save);
 routerDoc.get('/documentosAlumnos/:id/:idprofesor/:pages?', DocumentoController.getDocumentosAlumnos);
 routerDoc.get('/documentosProfesor/:id/:idalumno/:pages?', DocumentoController.getDocumentosProfesor);
 routerDoc.post('/upload-image/:id', md_upload, DocumentoController.upload)
