@@ -464,7 +464,7 @@ var controllers = {
         console.log(file_path);
         var file_split = file_path.split('\\');
         var file_name = file_split[2];
-        console.log(file_name);
+        //console.log(file_name);
 
         //sacar extensión del archivo para comprobar
 
@@ -498,7 +498,8 @@ var controllers = {
                     });
                 }
                 alumno = userUpdate;
-                alumno.image = file_name;
+                //alumno.image = file_name;
+                alumno.setUrl(file_name);
 
                 alumno.save((errn, alumnoStored) => {
 

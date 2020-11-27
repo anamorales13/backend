@@ -35,6 +35,8 @@ app.get('*', (req, res) => {
 app.use(bodyParser.urlencoded({extended:false}))//cargar el bodyparser
 app.use(bodyParser.json()); //convertir cualquier peticion que me llege a json.
 
+//archivos:
+app.use('/public', express.static(`${__dirname}/upload/users`))
 
 // 5 -CORS : permitir peticiones desde front-end
 

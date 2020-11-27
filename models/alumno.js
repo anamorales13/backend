@@ -35,6 +35,11 @@ var AlumnoSchema=Schema ({
 
 });
 
+AlumnoSchema.methods.setUrl = function setUrl (filename){
+    //guardarmos la ULR absoluta:
+    this.url = `https://plataforma-erasmus.herokuapp.com/public/${filename}`
+ }
+
 
 
 module.exports= mongoose.model('Alumno', AlumnoSchema);
