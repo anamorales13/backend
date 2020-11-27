@@ -37,6 +37,8 @@ app.use(bodyParser.json()); //convertir cualquier peticion que me llege a json.
 
 //archivos:
 app.use('/public', express.static(`${__dirname}/upload/users`))
+app.use('/publicdoc', express.static(`${__dirname}/upload/users/documentos`))
+app.use('/docdropbox', express.static(`${__dirname}/upload/documents`))
 
 // 5 -CORS : permitir peticiones desde front-end
 

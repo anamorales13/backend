@@ -37,7 +37,12 @@ var AlumnoSchema=Schema ({
 
 AlumnoSchema.methods.setUrl = function setUrl (filename){
     //guardarmos la ULR absoluta:
-    this.url = `https://plataforma-erasmus.herokuapp.com/public/${filename}`
+    this.image = `https://plataforma-erasmus.herokuapp.com/public/${filename}`
+ }
+
+ AlumnoSchema.methods.setUrl = function setUrl (filename){
+    //guardarmos la ULR absoluta:
+    this.url = `https://plataforma-erasmus.herokuapp.com/publicdoc/${filename}`
  }
 
 
