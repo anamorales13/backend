@@ -24,7 +24,10 @@ const DocumentosSchema = Schema({
     tipo_nube:String
  });
 
-
+ DocumentosSchema.methods.setUrl = function setUrl (filename){
+   //guardarmos la ULR absoluta:
+   this.url = `https://plataforma-erasmus.herokuapp.com/docdropbox/${filename}`
+}
 
 
  module.exports= mongoose.model('Documentos', DocumentosSchema);
