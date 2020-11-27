@@ -374,7 +374,7 @@ var controllers = {
 
         var file_path = req.files.file0.path;
         console.log(file_path);
-        var file_split = file_path.split('\\');
+        var file_split = file_path.split('\/');
 
         //  var file_name = file_split[file_split.length-1];
         var file_name = file_split[2];
