@@ -448,7 +448,7 @@ var controllers = {
         var userId = req.params.id;
         var filename = 'Imagen no subida';
         var alumno = new Alumno();
-
+        console.log("estoy en upload")
         console.log(userId);
 
         if (!req.files) {
