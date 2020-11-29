@@ -36,24 +36,38 @@ var controllers = {
         destino.coordinador = params.coordinador;
 
 
+        Destino.find({
+            $and: [
+                { ciuad: { $eq: params.ciudad } },
+                { pais: { $eq: params.pais } },
+                {carrera: { $eq: params.carrera }}]
+        })
+            .exec((err, destino) => {
+                if (destino && destino.length >= 1) {
+                    return res.status(200).send({
+                        message: "El destino que intenta registrar ya existe"
+                    })}
+                else{
+                    destino.save((errn, destinoStored) => {
 
-        destino.save((errn, destinoStored) => {
+                        if (errn || !destinoStored) {
+                            return res.status(500).send({
+                                status: 'error',
+                                message: 'El destino no se ha guardado'
+                            });
+                        }
+            
+                        return res.status(200).send({
+                            status: 'sucess',
+                            destino: destinoStored
+                        });
+            
+                    });
+                }
 
-            if (errn || !destinoStored) {
-                return res.status(500).send({
-                    status: 'error',
-                    message: 'El destino no se ha guardado'
-                });
-            }
-
-            return res.status(200).send({
-                status: 'sucess',
-                destino: destinoStored
-            });
-
-        });
-
-    },
+       
+    })
+},
 
     borrar: (req, res) => {
         var id = req.params.id;
