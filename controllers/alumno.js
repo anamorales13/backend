@@ -464,14 +464,14 @@ var controllers = {
         console.log(file_path);
         var file_split = file_path.split('\/');
         var file_name = file_split[2];
-        //console.log(file_name);
+        console.log("file_name" + file_name);
 
         //sacar extensión del archivo para comprobar
 
         var ext_split = file_name.split('\.');
         var file_ext = ext_split[1];
         console.log(file_ext);
-
+        
         /* if (userId != req.users.sub) {
              fss.unlink(file_path, (err) => {
                  if (err) {
@@ -484,8 +484,9 @@ var controllers = {
          }*/
 
         //comprobar que las extensiones son correctas:
-        if (file_ext == 'png' || file_ext == 'jpg' || file_ext == 'jpeg' || file_ext == 'gif') {
+        if (file_ext === 'png' || file_ext === 'jpg' || file_ext === 'jpeg' || file_ext === 'gif') {
             //actualizar imagen de usuario
+            
             Alumno.findOne({ _id: userId }, (err, userUpdate) => {
                 if (err) {
                     return res.status(500).send({
@@ -499,7 +500,7 @@ var controllers = {
                 }
                 alumno = userUpdate;
                 //alumno.image = file_name;
-                alumno.setUrl(file_name);
+                alumno.image=file_name;
 
                 alumno.save((errn, alumnoStored) => {
 
