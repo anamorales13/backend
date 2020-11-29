@@ -450,10 +450,10 @@ var controllers = {
         var alumno = new Alumno();
         console.log("estoy en upload")
         console.log(userId);
-
+        console.log(req.files);
         if (!req.files) {
             return res.status(404).send({
-                status: 'error',
+                status: 'no hay',
                 message: file_name
             });
 
