@@ -7,7 +7,7 @@ const storage= multer.diskStorage({
         cb(null, './upload/users')
     },
     filename: function (req, file, cb){
-        cb(null, `${file.fieldname}-${Date.now()}`)
+        cb(null, `${file.headers.filename}-${Date.now()}`)
     }
 })
 
