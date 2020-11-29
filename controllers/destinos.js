@@ -26,15 +26,7 @@ var controllers = {
     save: (req, res) => {
 
         var params = req.body;
-        var destino = new Destino();
-
-
-        destino.pais = params.pais;
-        destino.ciudad = params.ciudad;
-        destino.carrera = params.carrera;
-        destino.profesor = params.profesor;
-        destino.coordinador = params.coordinador;
-
+      
 
         Destino.find({
             $and: [
@@ -48,6 +40,16 @@ var controllers = {
                         message: "El destino que intenta registrar ya existe"
                     })}
                 else{
+
+                    var destino = new Destino();
+
+
+                    destino.pais = params.pais;
+                    destino.ciudad = params.ciudad;
+                    destino.carrera = params.carrera;
+                    destino.profesor = params.profesor;
+                    destino.coordinador = params.coordinador;
+            
                     destino.save((errn, destinoStored) => {
 
                         if (errn || !destinoStored) {
