@@ -870,7 +870,7 @@ var controllers = {
 
         var itemsPerPage= 6;
 
-        Alumno.find({ coordinador: { $eq: userId } }).populate('destino', 'pais ciudad carrera').paginate(page, itemsPerPage, (err, users, total) =>{
+        Alumno.find({ coordinador: { $eq: userId } }).populate('destino', 'pais ciudad carrera').sort({apellido1:1}).paginate(page, itemsPerPage, (err, users, total) =>{
             
                 if (err) return res.status(500).send({
                     status: 'fail',
