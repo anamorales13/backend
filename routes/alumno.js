@@ -22,7 +22,7 @@ router.get('/user/:id', /*md_auth.ensureAuth,*/ AlumnoController.getUser);
 
 router.put('/update-user/:id' , /*md_auth.ensureAuth,*/ AlumnoController.updateUser);
 router.put('/update-password/:id', AlumnoController.updatePassword);
-router.post('/upload-image-user/:id', /*md_uploadd,*/ uploadimage.single('file0'), AlumnoController.uploadImage );
+router.post('/upload-image-user/:id', /*md_uploadd,*/ uploadimage.single('formData'), AlumnoController.uploadImage );
 router.get('/get-image-user/:imageFile', AlumnoController.getImageFile );
 router.delete('/delete-image/:id',md_uploadd, AlumnoController.deleteImageFile);
 router.post('/compararPassword/:id', AlumnoController.comparePassword);
