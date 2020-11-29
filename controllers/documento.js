@@ -404,7 +404,7 @@ var controllers = {
                 });
             }
             documento = documentoUpdated;
-            documento.setUrl(file_name);
+            documento.url= file_name;
 
             documento.save((errn, docStored) => {
                 if (errn || !docStored) {
