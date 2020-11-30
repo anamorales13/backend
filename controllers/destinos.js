@@ -36,9 +36,11 @@ var controllers = {
         })
             .exec((err, destino) => {
                 if (destino && destino.length >= 1) {
-                    return res.status(200).send({
-                        message: "El destino que intenta registrar ya existe"
-                    })}
+                    return res.status(404).send({
+                        status: 'error',
+                        message: 'El destino ya esta registrado'
+                    });
+                }
                 else{
 
                     var destino = new Destino();
