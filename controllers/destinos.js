@@ -30,7 +30,7 @@ var controllers = {
 
         Destino.find({
             $and: [
-                { ciuad: { $eq: params.ciudad } },
+                { ciudad: { $eq: params.ciudad } },
                 { pais: { $eq: params.pais } },
                 {carrera: { $eq: params.carrera }}]
         })
