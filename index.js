@@ -26,10 +26,10 @@ mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true})
                 ejecuta lo que quieres hacer
         });*/
 
-        app.listen(port, ()=> {
+     /*   app.listen(port, ()=> {
             console.log('servidor corriendo en' +port +" " + url);
 
-        });
+        });*/
 });
 
 
