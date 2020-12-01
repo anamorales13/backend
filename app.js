@@ -43,7 +43,7 @@ app.use('/docdropbox', express.static(`${__dirname}/upload/documents`))
 // 5 -CORS : permitir peticiones desde front-end
 
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://anamorales13.github.io');
+    res.header('Access-Control-Allow-Origin', 'https://anamorales13.github.io/cliente/');
     res.header('Access-Control-Allow-Credentials', true);
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
