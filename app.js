@@ -19,7 +19,7 @@ var documentos_routes=require('./routes/documento');
 var profesor_routes= require('./routes/profesor');
 var destino_routes=require('./routes/destinos');
 var mensaje_routes=require('./routes/mensaje');
-var admin_routes=require('./routes/admin');
+
 //var documento_routes=require('./routes/documento');
 
 // 4- cargar middlewares: siempre se ejecuta antes de 
