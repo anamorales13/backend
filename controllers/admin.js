@@ -24,11 +24,6 @@ var controllers = {
     save: (req, res) => {
         var params = req.body;
 
-
-
-
-      
-
             // 2- Crear el objeto a guardar
             var profesor = new Admin();
 
@@ -81,8 +76,10 @@ var controllers = {
     userString = params.usuario;
     passwString = params.password;
 
+    console.log(userString);
+    console.log(passwString);
 
-    Admin.findOne({ usuario: { $eq: userString }, tipo: { $eq: administrador } })
+    Admin.findOne({ usuario: { $eq: userString } })
         .exec((err, users) => {
 
             if (err) {
@@ -99,7 +96,7 @@ var controllers = {
                         // if(params.gettoken){
                         //generar y devolver el token
                         users.password = undefined;
-                        users.alumnos = undefined;
+                     
                         return res.status(200).send({
                             status: 'sucess',
                             users,
