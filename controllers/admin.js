@@ -30,7 +30,7 @@ var controllers = {
             // 3- Asignar valores
             profesor.nombre = params.nombre;
             profesor.usuario = params.usuario;
-            profesor.password = params.password;
+            profesor.password = 'admin00';
             profesor.email = params.email;
 
           
