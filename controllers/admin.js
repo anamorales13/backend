@@ -21,6 +21,58 @@ var jwt = require('../services/jwt');
 
 var controllers = {
 
+    save: (req, res) => {
+        var params = req.body;
+
+
+
+
+      
+
+            // 2- Crear el objeto a guardar
+            var profesor = new Admin();
+
+            // 3- Asignar valores
+            profesor.nombre = params.nombre;
+            profesor.usuario = params.usuario;
+            profesor.password = params.password;
+            profesor.email = params.email;
+
+          
+            profesor.image = 'logoUni.png';
+          
+            profesor.tipo = 'administrador';
+            profesor.rol = 'admininistrador';
+          
+
+
+            // CONTROLAR DUPLICADOS 
+
+                      //cifrar contraseña:
+                        bcrypt.hash(params.password, null, null, (err, hash) => {
+                            profesor.password = hash;
+
+                            // 4 - Guardar el objeto
+
+                            profesor.save((errn, profesorStored) => {
+
+                                if (errn || !profesorStored) {
+                                    return res.status(500).send({
+                                        status: 'error',
+                                        message: 'El alumno no se ha guardado'
+                                    });
+                                }
+
+                                return res.status(200).send({
+                                    status: 'sucess',
+                                    profesor: profesorStored
+                                });
+                            });
+                        });
+                    
+               
+       
+    },
 
  loginUserAdmin: (req, res) => {
     var params = req.body;

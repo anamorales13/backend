@@ -10,7 +10,7 @@ var multipart = require('connect-multiparty');
 var md_uploadd= multipart({uploadDir: './upload/users'});
 
 
-
+router.post('/save', AdminController.save);
 router.post('/login-admin', AdminController.loginUserAdmin);
 
 
