@@ -20,7 +20,6 @@ var profesor_routes= require('./routes/profesor');
 var destino_routes=require('./routes/destinos');
 var mensaje_routes=require('./routes/mensaje');
 var admin_routes=require('./routes/admin');
-
 //var documento_routes=require('./routes/documento');
 
 // 4- cargar middlewares: siempre se ejecuta antes de 
@@ -61,7 +60,7 @@ app.use((req, res, next) => {
  app.use('/apiProfesor', profesor_routes);
  app.use('/apiDestino', destino_routes);
  app.use('/api',mensaje_routes );
- app.use('/apiAdmin', admin_routes);
+
  
  
  //app.use('/apiErasmusDoc', documento_routes);
