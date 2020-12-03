@@ -7,7 +7,8 @@ var bodyParser= require('body-parser')  //recibir las peticiones
 const cors = require('cors');
 
 //NUEVO 
-const multer = multer();
+
+const multer = require('multer');
 
 const morgan = require('morgan');
 const path= require('path');
