@@ -6,6 +6,7 @@ var express= require('express'); //el que crea el servidor.
 var bodyParser= require('body-parser')  //recibir las peticiones
 const cors = require('cors');
 const path = require('path');
+const multer =require('multer');
 
 // 2- Ejecutar express (para poder trabajar con http)
 var app= express(); //esto va a ser la app en si, es lo que 
@@ -36,9 +37,11 @@ app.use(bodyParser.urlencoded({extended:false}))//cargar el bodyparser
 app.use(bodyParser.json()); //convertir cualquier peticion que me llege a json.
 
 //archivos:
-app.use('/public', express.static(`${__dirname}/upload/users`))
-app.use('/publicdoc', express.static(`${__dirname}/upload/users/documentos`))
-app.use('/docdropbox', express.static(`${__dirname}/upload/documents`))
+app.use('/public', express.static(`${__dirname}/public/users`))
+app.use('/publicdoc', express.static(`${__dirname}/public/users/documentos`))
+app.use('/docdropbox', express.static(`${__dirname}/public/documents`))
+
+
 
 // 5 -CORS : permitir peticiones desde front-end
 
