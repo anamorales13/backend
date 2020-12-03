@@ -7,8 +7,7 @@ var bodyParser= require('body-parser')  //recibir las peticiones
 const cors = require('cors');
 
 //NUEVO 
-var multer=require('multer');
-const upload=multer({dest: "./public/"})
+
 const morgan = require('morgan');
 const path= require('path');
 const exphbs= require('express-handlebars');
@@ -36,10 +35,6 @@ var images_routes = require('./routes/images');
 
 /* NUEVO*/
 
-app.post('/image-add', upload.single("file0"), (req,res) =>{
-    console.log(req.files);
-    res.send("200");
-});
 
 /*FIN DE LO NUEVO*/
 
