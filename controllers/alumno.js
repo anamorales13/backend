@@ -549,7 +549,7 @@ var controllers = {
         var userId = req.params.id;
         var body= req.body;
        
-        Alumno.findByIdAndUpdate(userId, { $set: { image: body.image , cloud_url: body.cloud_url} }, { new: true }, function (err, user) {
+        Alumno.findByIdAndUpdate(userId, { $set: { image: body.imageUrl , cloud_url: body.cloud_url} }, { new: true }, function (err, user) {
             if (err || !user) {
                 return res.status(500).send({
                     status: 'error',
