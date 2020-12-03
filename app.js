@@ -6,11 +6,13 @@ var express= require('express'); //el que crea el servidor.
 var bodyParser= require('body-parser')  //recibir las peticiones
 const cors = require('cors');
 
-const multer =require('multer');
+//NUEVO 
+var multer=require('multer');
+const upload=multer({dest: "./public/"})
 const morgan = require('morgan');
 const path= require('path');
 const exphbs= require('express-handlebars');
-
+/* FIN DE NUEVO */
 
 
 
@@ -33,18 +35,11 @@ var images_routes = require('./routes/images');
 
 
 /* NUEVO*/
-app.use(morgan('dev'));
 
-//app.use(express.json());
-//app.use(express.urlencoded({extended:false}));
-
-const storage= multer.diskStorage({
-    destination: path.join(__dirname, 'public/users'),
-    filename: (req, file, cb)=>{
-        cb(null, new Date().getTime() + path.extname(file.originalname)); //modificar el nombre del archivo
-    }
+app.post('/image-add', upload.single("file0"), (req,res) =>{
+    console.log(req.files);
+    res.send("200");
 });
-app.use(multer({storage}).single('file0'));
 
 /*FIN DE LO NUEVO*/
 

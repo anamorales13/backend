@@ -7,11 +7,13 @@ var express= require('express');
 var router = express.Router(); //disponible el router
 
 router.post('/images-add', (req, res) =>{
-    console.log(req.body);
-    console.log(req.file);
+    
+    console.log(req.files);
 
-    res.send('Received');
-})
+    res.send("Receive");
+});
+    
+
 
 
 module.exports=router;

@@ -5,9 +5,7 @@ var mongoose = require('mongoose');
 var Schema= mongoose.Schema;
 
 var ImagesSchema= Schema({
-    titulo: String,
-    descripcion:String, 
-    url: String
+    imageUrl: String
   
 }) ;
 
