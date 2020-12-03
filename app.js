@@ -35,8 +35,8 @@ var images_routes = require('./routes/images');
 /* NUEVO*/
 app.use(morgan('dev'));
 
-app.use(express.json());
-app.use(express.urlencoded({extended:false}));
+//app.use(express.json());
+//app.use(express.urlencoded({extended:false}));
 
 const storage= multer.diskStorage({
     destination: path.join(__dirname, 'public/users'),
