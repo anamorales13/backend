@@ -7,6 +7,10 @@ var bodyParser= require('body-parser')  //recibir las peticiones
 const cors = require('cors');
 const path = require('path');
 const multer =require('multer');
+const morgan = require('morgan');
+const path= require('path');
+const exphbs= require('express-handlebars');
+
 
 
 
@@ -22,17 +26,35 @@ var documentos_routes=require('./routes/documento');
 var profesor_routes= require('./routes/profesor');
 var destino_routes=require('./routes/destinos');
 var mensaje_routes=require('./routes/mensaje');
-
-//var documento_routes=require('./routes/documento');
+var images_routes = require('./routes/images');
 
 // 4- cargar middlewares: siempre se ejecuta antes de 
 //                     cargar una ruta de la web.
+
+
+/* NUEVO*/
+app.use(morgan('dev'));
+
+app.use(express.json());
+app.use(express.urlencoded({extended:false}));
+
+const storage= multer.diskStorage({
+    destination: path.join(__dirname, 'public/users'),
+    filename: (req, file, cb)=>{
+        cb(null, new Date().getTime() + path.extname(file.originalname)); //modificar el nombre del archivo
+    }
+});
+app.use(multer({storage}).single('file0'));
+
+/*FIN DE LO NUEVO*/
 
 /*
 app.use(express.static(path.join(__dirname, '../src/build')))
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '../src/build/index.html'))
 })*/
+
+
 
 
 app.use(bodyParser.urlencoded({extended:false}))//cargar el bodyparser
@@ -65,6 +87,7 @@ app.use((req, res, next) => {
  app.use('/apiProfesor', profesor_routes);
  app.use('/apiDestino', destino_routes);
  app.use('/api',mensaje_routes );
+ app.use('/apiImages', images_routes);
 
  
  
