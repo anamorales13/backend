@@ -5,7 +5,7 @@
 var express= require('express'); //el que crea el servidor.
 var bodyParser= require('body-parser')  //recibir las peticiones
 const cors = require('cors');
-const path = require('path');
+
 const multer =require('multer');
 const morgan = require('morgan');
 const path= require('path');
