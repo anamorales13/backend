@@ -7,8 +7,8 @@ var bodyParser= require('body-parser')  //recibir las peticiones
 const cors = require('cors');
 
 //NUEVO 
-var multer=require('multer');
-var fs= require('fs');
+const multer = multer();
+
 const morgan = require('morgan');
 const path= require('path');
 const exphbs= require('express-handlebars');
@@ -35,31 +35,20 @@ var images_routes = require('./routes/images');
 
 
 /* NUEVO*/
+app.use(morgan('dev'));
 
-var storage =   multer.diskStorage({
-    destination: function (req, file, callback) {
-      fs.mkdir('./uploads', function(err) {
-          if(err) {
-              console.log(err.stack)
-          } else {
-              callback(null, './uploads');
-          }
-      })
-    },
-    filename: function (req, file, callback) {
-      callback(null, file.fieldname + '-' + Date.now());
+//app.use(express.json());
+//app.use(express.urlencoded({extended:false}));
+
+const storage= multer.diskStorage({
+    destination: path.join(__dirname, 'public/users'),
+    filename: (req, file, cb)=>{
+        console.log(file);
+        cb(null, new Date().getTime() + path.extname(file.originalname)); //modificar el nombre del archivo
     }
-  });
-
-  app.post('/image-add',function(req,res){
-    var upload = multer({ storage : storage}).single('file0');
-    upload(req,res,function(err) {
-        if(err) {
-            return res.end("Error uploading file.");
-        }
-        res.end("File is uploaded");
-    });
 });
+app.use(multer({storage}).single('file0'));
+
 /*FIN DE LO NUEVO*/
 
 /*
