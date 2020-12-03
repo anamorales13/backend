@@ -21,4 +21,8 @@ routerDoc.delete('/delete/:title', DocumentoController.delete);
 routerDoc.get('/mydropboxProfesor/:id/:pages?', DocumentoController.getmydropbox);
 routerDoc.get('/mydropboxAlumno/:id/:pages?', DocumentoController.getmydropboxAlumno);
 
+//rutas imagen
+
+routerDoc.put('/add-files/:id', DocumentoController.addfiles)
+
 module.exports= routerDoc;

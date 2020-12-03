@@ -33,7 +33,7 @@ var controllers = {
             //asignar valores
             documento.title = params.title;
 
-            if (params.url) {
+         /*   if (params.url) {
                 var file = params.url;
                 var file_split = file.split('\\');
                 
@@ -67,7 +67,7 @@ var controllers = {
                 documento.tipoDocumento = "default.png";
                 documento.url = "default.png";
 
-            }
+            }*/
 
 
 
@@ -93,12 +93,7 @@ var controllers = {
                 documento.descripcion = params.descripcion;
             }
 
-            /*  if (params.comentario) {
-                  documento.comentario = params.comentario;
-              } else {
-                  documento.comentario = null;
-              }*/
-
+          
 
             //Guardar el objeto
 
@@ -445,6 +440,28 @@ var controllers = {
             }
         });
 
+
+
+    },
+
+    
+    addfiles: (req, res) =>{
+        var userId = req.params.id;
+        var body= req.body;
+       
+        Documento.findByIdAndUpdate(userId, { $set: { image: body.imageUrl , cloud_url: body.cloud_url} }, { new: true }, function (err, user) {
+            if (err || !user) {
+                return res.status(500).send({
+                    status: 'error',
+                    message: 'El alumno no se ha guardado'
+                });
+            }
+
+            return res.status(200).send({
+                status: 'sucess',
+                alumno: user
+            });
+        });
 
 
     },
