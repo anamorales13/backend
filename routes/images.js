@@ -1,7 +1,7 @@
 'use strict'
 
 var express= require('express');
-var imagesControllers= require('../controllers/images');
+//var imagesControllers= require('../controllers/images');
 
 
 var router = express.Router(); //disponible el router
