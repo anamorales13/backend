@@ -25,10 +25,10 @@ router.post('/images-add', async (req, res) =>{
    //result es la imagen ya subida
 
    console.log(result);
-    // new Image({
-    //     imageUrl: 
-    //     cloud_url:
-    // })
+    new Image({
+        imageUrl: result.url,
+        cloud_url:result.public_id
+    })
 
     res.send('received');
 

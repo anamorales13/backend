@@ -7,10 +7,26 @@ var AlumnoController= require('../controllers/alumno');
 var router = express.Router(); //disponible el router
 //var md_auth= require('../Middleware/authenticated');
 
+/*
 var multipart= require('connect-multiparty');
 var md_uploadd= multipart({uploadDir: './public/users'});
 var md_uploaddoc= multipart({uploadDir: './public/users/documentos'});
-const uploadimage= require('../libs/storage');
+const uploadimage= require('../libs/storage');*/
+
+
+/* IMAGENES */
+var multer=require('multer');
+const cloudinary= require('cloudinary');
+const Alumno = require('../models/alumno');
+require('dotenv').config({path: 'secret.env'});
+
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key : process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
 
 //RUTAS VALIDAS
 router.get('/pruebas',/* md_auth.ensureAuth*/ AlumnoController.pruebas);
@@ -43,7 +59,24 @@ router.get('/get-image/:image', AlumnoController.getImage);
 router.get('/getdocumentos/:id', AlumnoController.getDocumentos);
 
 
+//rutas imagen
 
+router.post('/images-add', async (req, res) =>{
+
+    console.log(req.file);
+
+   const result = await cloudinary.v2.uploader.upload(req.file.path); //el metodo va a tomar tiempo entonces
+   //result es la imagen ya subida
+
+   console.log(result);
+    new Alumno({
+        image: result.url,
+        cloud_url:result.public_id
+    })
+
+    res.send('received');
+
+});
 
 
 
