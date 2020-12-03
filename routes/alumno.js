@@ -8,7 +8,7 @@ var router = express.Router(); //disponible el router
 //var md_auth= require('../Middleware/authenticated');
 
 var multipart= require('connect-multiparty');
-var md_uploadd= multipart({uploadDir: './public/users'});
+var md_uploadd= multipart({uploadDir: './public'});
 var md_uploaddoc= multipart({uploadDir: './public/users/documentos'});
 const uploadimage= require('../libs/storage');
 
