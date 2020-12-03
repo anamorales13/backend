@@ -8,6 +8,8 @@ const cors = require('cors');
 const path = require('path');
 const multer =require('multer');
 
+
+
 // 2- Ejecutar express (para poder trabajar con http)
 var app= express(); //esto va a ser la app en si, es lo que 
                     // luego exportaremos.
