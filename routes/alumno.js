@@ -61,23 +61,7 @@ router.get('/getdocumentos/:id', AlumnoController.getDocumentos);
 
 //rutas imagen
 
-router.post('/images-add', async (req, res) =>{
-
-    console.log(req.file);
-
-   const result = await cloudinary.v2.uploader.upload(req.file.path); //el metodo va a tomar tiempo entonces
-   //result es la imagen ya subida
-
-   console.log(result);
-    new Alumno({
-        image: result.url,
-        cloud_url:result.public_id
-    })
-
-    res.send('received');
-
-});
-
+router.put('/add-files/:id', AlumnoController.addfiles)
 
 
 

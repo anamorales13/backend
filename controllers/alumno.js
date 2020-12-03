@@ -545,6 +545,27 @@ var controllers = {
 
     },
 
+    addfiles: (req, res) =>{
+        var userId = req.params.id;
+        var body= req.body;
+       
+        Alumno.findByIdAndUpdate(userId, { $set: { image: body.update , cloud_url: body.cloud_url} }, { new: true }, function (err, user) {
+            if (err || !user) {
+                return res.status(500).send({
+                    status: 'error',
+                    message: 'El alumno no se ha guardado'
+                });
+            }
+
+            return res.status(200).send({
+                status: 'sucess',
+                alumno: user
+            });
+        });
+
+
+    },
+
     deleteImageFile: (req, res) => {
         var userId = req.params.id;
         console.log("Estoy en delete");

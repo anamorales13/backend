@@ -31,8 +31,10 @@ router.post('/images-add', async (req, res) =>{
     })
     await newImage.save();
 
-    console.log(newImage);
-    res.send('200');
+    
+    return res.status(200).send({
+       image: newImage
+    });
 
 });
 
