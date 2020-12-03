@@ -7,7 +7,8 @@ var bodyParser= require('body-parser')  //recibir las peticiones
 const cors = require('cors');
 
 //NUEVO 
-
+var multer=require('multer');
+var fs= require('fs');
 const morgan = require('morgan');
 const path= require('path');
 const exphbs= require('express-handlebars');
@@ -35,8 +36,30 @@ var images_routes = require('./routes/images');
 
 /* NUEVO*/
 
+var storage =   multer.diskStorage({
+    destination: function (req, file, callback) {
+      fs.mkdir('./uploads', function(err) {
+          if(err) {
+              console.log(err.stack)
+          } else {
+              callback(null, './uploads');
+          }
+      })
+    },
+    filename: function (req, file, callback) {
+      callback(null, file.fieldname + '-' + Date.now());
+    }
+  });
 
-
+  app.post('/image-add',function(req,res){
+    var upload = multer({ storage : storage}).single('file0');
+    upload(req,res,function(err) {
+        if(err) {
+            return res.end("Error uploading file.");
+        }
+        res.end("File is uploaded");
+    });
+});
 /*FIN DE LO NUEVO*/
 
 /*

@@ -7,7 +7,8 @@ var multer=require('multer');
 const upload=multer({dest: "./public/"})
 var router = express.Router(); //disponible el router
 
-router.post('/image-add', upload.single("file0"), (req,res) =>{
+
+router.post('/imagen-add', upload.single("file0"), (req,res) =>{
     console.log(req.files);
     res.send("200");
 });
