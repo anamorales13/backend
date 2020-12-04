@@ -973,7 +973,7 @@ var controllers = {
         var body= req.body;
 
         Alumno.updateOne({ _id: userId, "documentos.nombre": docname },
-        { $set: { "documentos.$.estado": 'En tramite', "documentos.$.formato": body.format, "documentos.$.image": body.url, "documentos.$.fecha": new Date(), "documentos.$.cloud_url": body.cloud_url } }, (err, userUpdate) => {
+        { $set: { "documentos.$.estado": 'En tramite', "documentos.$.formato": body.format, "documentos.$.image": body.imageUrl, "documentos.$.fecha": new Date(), "documentos.$.cloud_url": body.cloud_url } }, (err, userUpdate) => {
             if (err) {
                 return res.status(500).send({
                     message: 'Error en la peticion'
