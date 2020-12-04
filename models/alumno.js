@@ -8,9 +8,10 @@ var Schema = mongoose.Schema;
 const documentosOficialSchema = new Schema({
     nombre: String,
     fecha: {type:Date, default: Date.now},
-    url: String,
+    image: String,
+    cloud_url:String,
     estado:String,
-    tipo: String
+    formato: String
 });
 
 var AlumnoSchema=Schema ({   

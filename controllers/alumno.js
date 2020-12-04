@@ -965,6 +965,33 @@ var controllers = {
                 });
             })
 
+    },
+
+    addoficialfiles:(req, res) =>{
+        var userId= req.params.id;
+        var docname= req.params.name;
+        var body= req.body;
+
+        Alumno.updateOne({ _id: userId, "documentos.nombre": docname },
+        { $set: { "documentos.$.estado": 'En tramite', "documentos.$.formato": body.format, "documentos.$.image": body.url, "documentos.$.fecha": new Date(), "documentos.$.cloud_url": body.cloud_url } }, (err, userUpdate) => {
+            if (err) {
+                return res.status(500).send({
+                    message: 'Error en la peticion'
+                });
+            }
+            if (!userUpdate) {
+                return res.status(404).send({
+                    message: 'No se ha podido actualizar el usuario'
+                });
+            }
+
+            return res.status(200).send({
+                message: 'Sucess',
+                userUpdate
+            });
+
+
+        });
     }
 
 

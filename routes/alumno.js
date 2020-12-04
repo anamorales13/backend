@@ -62,6 +62,7 @@ router.get('/getdocumentos/:id', AlumnoController.getDocumentos);
 //rutas imagen
 
 router.put('/add-files/:id', AlumnoController.addfiles)
+router.put('/add-files-oficial/:id/:name', AlumnoController.addoficialfiles);
 
 
 
