@@ -10,7 +10,7 @@ const DocumentosSchema = Schema({
    title:String,
     image: String,
     cloud_url:String,
-    tipoDocumento:String,
+    formato:String,
     date: {type:Date, default: Date.now},
     descripcion:String,
     propietario:String,

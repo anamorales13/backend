@@ -6,7 +6,8 @@ var Schema= mongoose.Schema;
 
 var ImagesSchema= Schema({
     imageUrl: String,
-    cloud_url:String
+    cloud_url:String,
+    format: String,
   
 }) ;
 

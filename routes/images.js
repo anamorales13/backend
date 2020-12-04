@@ -27,7 +27,8 @@ router.post('/images-add', async (req, res) =>{
    console.log(result);
   const newImage=   new Image({
         imageUrl: result.url,
-        cloud_url:result.public_id
+        cloud_url:result.public_id,
+        format: result.format
     })
     await newImage.save();
 
