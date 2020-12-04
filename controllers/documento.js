@@ -33,44 +33,6 @@ var controllers = {
             //asignar valores
             documento.title = params.title;
 
-         /*   if (params.url) {
-                var file = params.url;
-                var file_split = file.split('\\');
-                
-                var file_ext_split = file_split[2].split('\.');
-                var file_ext= file_ext_split[1];
-                var file_name=file_ext_split[0];
-                
-                console.log("url"+ params.url);
-                console.log("file_ext:" + file_ext);
-                console.log("file_name:" + file_name);
-                
-
-
-                if (file_ext == "txt" || file_ext == "doc" || file_ext == "docx") {
-                    //documento.url='../assets/images/word.png';
-                    documento.tipoDocumento = "word.png";
-                } else if (file_ext == "xls" || file_ext == "xlm" || file_ext == "xlt") {
-                    //documento.url='../assets/images/default.png';
-                    documento.tipoDocumento = "default.png";
-                } else if (file_ext == "pdf") {
-                    //documento.url='../assets/images/pdf.png';
-                    documento.tipoDocumento = "pdf.png";
-                } else if (file == "png" || file_ext == "jpg" || file_ext == "jpeg" || file_ext != "gif") {
-                    documento.tipoDocumento = "imagen";
-                }
-
-
-                documento.url = file_name;
-            } else {
-                //documento.url = '../assets/images/default.png';
-                documento.tipoDocumento = "default.png";
-                documento.url = "default.png";
-
-            }*/
-
-
-
             if (params.tipousuario === 'Alumno') {
                 documento.alumno = params.nombre;
                 documento.profesor = params.nombre2;
@@ -122,6 +84,7 @@ var controllers = {
                     }
                     else { //no existe el documento
 
+                        console.log("estoy en save");
                         documento.save((err, documentoStored) => {
                             if (err || !documentoStored) {
                                 return res.status(404).send({
@@ -130,6 +93,7 @@ var controllers = {
                                 });
                             }
 
+                            console.log("documentoStored: " + documentoStored);
                             return res.status(200).send({
                                 status: 'sucess',
                                 documento: documentoStored
