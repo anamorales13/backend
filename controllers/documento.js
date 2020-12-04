@@ -449,7 +449,7 @@ var controllers = {
         var userId = req.params.id;
         var body= req.body;
        
-        Documento.findByIdAndUpdate(userId, { $set: { image: body.imageUrl , cloud_url: body.cloud_url, formato: body.formato} }, { new: true }, function (err, user) {
+        Documento.findByIdAndUpdate(userId, { $set: { image: body.imageUrl , cloud_url: body.cloud_url, formato: body.format} }, { new: true }, function (err, user) {
             if (err || !user) {
                 return res.status(500).send({
                     status: 'error',
