@@ -81,7 +81,7 @@ var controllers = {
             usuario.telefono = params.telefono;
             usuario.tipo = params.tipo;
 
-            usuario.image = 'user-default.jpg';
+            usuario.image = 'https://res.cloudinary.com/du0ajhr8j/image/upload/v1607110816/user-default_ncfp78.jpg';
 
             usuario.documentos.push({ nombre: 'CPRA', estado: 'No Presentado' }, { nombre: 'Learning_Agreement', estado: 'No Presentado' },
                 { nombre: 'Modificacion_CPRA', estado: 'No Presentado' }, { nombre: 'Modificacion_LA', estado: 'No Presentado' });
