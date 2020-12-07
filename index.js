@@ -38,7 +38,7 @@ mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true})
 const server = http.createServer(app);//creando el server con http y express como handle request
 const options={
     cors:true,
-    origins:["http://anamorales13.github.io"],
+    origins:["*"],
    }
 const client = socketio(server,options);
 
