@@ -8,7 +8,7 @@ var mongoose = require('mongoose');
 //cargar archivo app
 var app= require('./app');
 const socketio = require('socket.io')
-const http = require('http')
+const http = require('https')
 
 var port= process.env.PORT || 3900;//variable puerto. El que queremos utilizar
 var url= process.env.MONGO_DB;
