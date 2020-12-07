@@ -80,7 +80,7 @@ client.on('connection', (socket) => {
     });
 
 
-    socket.on('disconnect', () => {
+    socket.on('disco', () => {
        const user= removeUser(socket.id);
 
        if(user){
