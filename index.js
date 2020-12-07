@@ -35,7 +35,7 @@ mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true})
 
 //CHAT 
 
-const server = http.createServer();//creando el server con http y express como handle request
+const server = http.createServer(app);//creando el server con http y express como handle request
 const options={
     cors:true,
     origins:["http://anamorales13.github.io"],
