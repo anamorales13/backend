@@ -42,7 +42,7 @@ const {addUser, removeUser, getUser, getUserInRoom} =require('./controllers/user
 
 
 server.listen(port, () => {
-    console.log("Server running in http://localhost:"+port)
+    console.log("Server running in:"+ url +", " +port)
   })
 
   
