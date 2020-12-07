@@ -36,9 +36,12 @@ mongoose.connect(url,{ useUnifiedTopology: true, useNewUrlParser: true})
 //CHAT 
 
 
-
 const server = http.createServer(app);//creando el server con http y express como handle request
-const client = socketio(server);
+const options={
+    cors:true,
+    origins:["https://anamorales13.github.io"],
+   }
+const client = socketio(server, options);
 
 const {addUser, removeUser, getUser, getUserInRoom} =require('./controllers/user');
 
