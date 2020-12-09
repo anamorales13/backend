@@ -55,6 +55,9 @@ var controllers = {
                 documento.descripcion = params.descripcion;
             }
 
+            documento.image= params.image;
+             documento.cloud_url= params.cloud_url;
+             documento.formato= params.format;
           
 
             //Guardar el objeto
