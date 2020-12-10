@@ -22,6 +22,7 @@ router.post('/images-add', async (req, res) =>{
    const result = await cloudinary.v2.uploader.upload(req.file.path); //el metodo va a tomar tiempo entonces
    //result es la imagen ya subida
 
+   console.log("result" + result);
   const newImage=   new Image({
         imageUrl: result.url,
         cloud_url:result.public_id,
