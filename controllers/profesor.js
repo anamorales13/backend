@@ -59,7 +59,7 @@ var controllers = {
             profesor.nombre = params.nombre;
             profesor.usuario = params.usuario;
             profesor.password = params.password;
-            profesor.email = params.email;
+            profesor.email = params.email+'.uhu.es';
 
             profesor.apellido1 = params.apellido1;
             profesor.apellido2 = params.apellido2;

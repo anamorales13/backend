@@ -39,6 +39,7 @@ const server = http.createServer(app);//creando el server con http y express com
 const options={
     cors:true,
     origins:["*"],
+    methods: ["GET", "POST"]
    }
 const client = socketio(server,options);
 
