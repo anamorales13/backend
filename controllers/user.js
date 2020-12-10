@@ -31,7 +31,10 @@ const removeUser =(id)=>{
 }
 
 
-const getUser=(id)=> users.find((user)=> user.id === id);
+const getUser=(id)=>{
+    console.log("getUser " + id );
+    return users.find((user)=> user.id === id);
+} 
 
 
 

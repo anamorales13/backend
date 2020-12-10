@@ -74,7 +74,7 @@ client.on('connection', (socket) => {
 
     socket.on('sendMessage', (message, callback)=>{
       
-        const user=getUser(socket.id);
+       const user=getUser(socket.id);
       console.log("index.js" + message);
         client.to(user.room).emit('message', {user:user.name, text:message});
         client.to(user.room).emit('roomData', {room: user.room, users: getUserInRoom(user.room)});
