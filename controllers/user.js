@@ -15,7 +15,7 @@ const addUser =({id,name,room})=>{
     const user= {id, name, room};
     users.push(user);
     console.log("usuarios"+ users[0].name + users[0].id);
-    console.log("array" + users);
+    console.log("array" + users[0]);
     
     return {user}
 
