@@ -13,7 +13,7 @@ var controllers = {
         var params = req.body;
         //var userN=req.params.user;
 
-        console.log(params);
+        console.log("hola" + params);
         try {
             var validate_title = !validator.isEmpty(params.title);
             // var validate_url=!validator.isEmpty(params.url);
@@ -113,6 +113,7 @@ var controllers = {
     },
     delete: (req, res) => {
         var docString = req.params.title;
+        console.log("hola" + docString);
 
         Documento.findOneAndDelete({ title: { $eq: docString } })
             .exec((err, documento) => {
@@ -121,6 +122,7 @@ var controllers = {
                         status: 'error',
                         message: 'Error en la peticion'
                     });
+                    
                 }
 
                 if (!documento) {
@@ -129,7 +131,7 @@ var controllers = {
                         message: 'No se encuentra el documento registrado'
                     })
                 }
-
+                console.log("eliminar");
                 return res.status(200).send({
                     status: 'sucess',
                     message: 'Documento eliminado correctamente',
