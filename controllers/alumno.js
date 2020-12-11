@@ -666,7 +666,7 @@ var controllers = {
         console.log("nombre" + docname);
         console.log("estado" + req.body.estado);
         Alumno.updateOne({ _id: userId, "documentos.nombre": docname },
-            { $set: { "documentos.$.estado": req.body.estado } }, (err, userUpdate) => {
+            { $set: { "documentos.$.estado": req.body.estado, "documentos.$.fecha": new Date() } }, (err, userUpdate) => {
                 if (err) {
                     return res.status(500).send({
                         message: 'Error en la peticion'
