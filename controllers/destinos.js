@@ -247,8 +247,6 @@ var controllers = {
                 });
             }
 
-
-
             return res.status(200).send({
                 destino
             });
