@@ -80,8 +80,11 @@ var controllers = {
 
             Profesor.find({
                 $and: [
-                    { email: { $eq: params.email.toLowerCase() } },
-                    { usuario: { $eq: params.usuario.toLowerCase() } }]
+                    { nombre: { $eq: profesor.nombre } },
+                    { apellido1: { $eq: profesor.apellido1 } },
+                    { apellido2: { $eq: profesor.apellido2 } },
+                    { email: { $eq: profesor.email } },
+                    { usuario: { $eq: params.usuario } }]
             })
                 .exec((err, users) => {
                     if (err) return res.status(500).send({
