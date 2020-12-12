@@ -108,6 +108,11 @@ var controllers = {
 
 
             // CONTROLAR DUPLICADOS 
+            console.log(params.nombre);
+            console.log(params.apellido1);
+            console.log(params.apellido2);
+            console.log(params.usuario);
+            console.log(usuario.email);
 
             Alumno.find({
                 $and: [
