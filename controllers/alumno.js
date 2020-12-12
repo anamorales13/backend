@@ -967,16 +967,16 @@ var controllers = {
 
     },
     eliminar: (req,res)=>{
-        var body= req.body;
+        
 
-        console.log("nombre" + req.body.nombre + body.apellido1 + body.apellido2);
+        console.log("nombre" + req.params.nombre + req.params.apellido1 + req.params.apellido2);
 
         Alumno.findOneAndDelete({
             $and: [
-                { nombre: { $eq: body.nombre.toLowerCase() } },
-                { apellido1: { $eq: body.apellido1.toLowerCase() } },
-                { apellido2: { $eq: body.apellido2.toLowerCase() } },
-                { usuario: { $eq: body.usuario.toLowerCase() } }]
+                { nombre: { $eq: req.params.nombre.toLowerCase() } },
+                { apellido1: { $eq: req.params.apellido1.toLowerCase() } },
+                { apellido2: { $eq: req.params.apellido2.toLowerCase() } },
+                { usuario: { $eq: req.params.usuario.toLowerCase() } }]
         })
         .exec ((err, user) => {
             if (err) {
