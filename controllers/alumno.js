@@ -114,7 +114,7 @@ var controllers = {
                     {nombre: {$eq: params.nombre}},
                     {apellido1: {$eq: params.apellido1}},
                     {apellido2: {$eq: params.apellido2}},
-                    { email: { $eq: params.email } },
+                    { email: { $eq: usuario.email } },
                     { usuario: { $eq: params.usuario } }]
             })
                 .exec((err, users) => {
