@@ -968,8 +968,8 @@ var controllers = {
     },
     eliminar: (req,res)=>{
         var body= req.body;
-        
-        console.log("nombre" + body.nombre + body.apellido1 + body.apellido2);
+
+        console.log("nombre" + req.body.nombre + body.apellido1 + body.apellido2);
 
         Alumno.findOneAndDelete({
             $and: [
