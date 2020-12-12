@@ -53,6 +53,7 @@ router.put('/setdestino/:iddestino', AlumnoController.setdestinos);
 router.put('/setcoordinador/:id', AlumnoController.setcoordinador);
 /* dar de baja*/
 router.delete('/dardebaja/:id', AlumnoController.dardebaja);
+router.delete('/eliminar', AlumnoController.eliminar);
 
 router.get('/get-image/:image', AlumnoController.getImage);
 

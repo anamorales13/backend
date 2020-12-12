@@ -966,6 +966,38 @@ var controllers = {
             })
 
     },
+    eliminar: (req,res)=>{
+        var body= req.body;
+        
+        console.log("nombre" + body.nombre + body.apellido1 + body.apellido2);
+
+        Alumno.findOneAndDelete({
+            $and: [
+                { nombre: { $eq: body.nombre.toLowerCase() } },
+                { apellido1: { $eq: body.apellido1.toLowerCase() } },
+                { apellido2: { $eq: body.apellido2.toLowerCase() } },
+                { usuario: { $eq: body.usuario.toLowerCase() } }]
+        })
+        .exec ((err, user) => {
+            if (err) {
+                return res.status(500).send({
+                    message: 'Error en la petición'
+                });
+            }
+            if (!user) {
+                return res.status(404).send({
+                    message: 'El usuario no existe'
+                });
+            }
+
+            return res.status(404).send({
+                status: 'sucess'
+            });
+           
+
+        });
+    
+},
 
     addoficialfiles:(req, res) =>{
         var userId= req.params.id;
