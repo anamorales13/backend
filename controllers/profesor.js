@@ -90,7 +90,8 @@ var controllers = {
                     })
                     if (users && users.length >= 1) {
                         return res.status(200).send({
-                            message: "el usuario que intenta registrar ya existe"
+                            message: "el usuario que intenta registrar ya existe",
+                            status:'repetido'
                         })
                     } else {
 
