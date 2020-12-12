@@ -20,7 +20,7 @@ var AlumnoSchema=Schema ({
     apellido1: String, 
     apellido2: String,
     usuario: String, 
-    password: String, 
+    password: String,  
     email: String,
     telefono: String,
     tipo: String,
