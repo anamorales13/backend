@@ -111,8 +111,11 @@ var controllers = {
 
             Alumno.find({
                 $and: [
-                    { email: { $eq: params.email.toLowerCase() } },
-                    { usuario: { $eq: params.usuario.toLowerCase() } }]
+                    {nombre: {$eq: params.nombre}},
+                    {apellido1: {$eq: params.apellido1}},
+                    {apellido2: {$eq: params.apellido2}},
+                    { email: { $eq: params.email } },
+                    { usuario: { $eq: params.usuario } }]
             })
                 .exec((err, users) => {
                     if (err) return res.status(500).send({
@@ -121,7 +124,8 @@ var controllers = {
                     })
                     if (users && users.length >= 1) {
                         return res.status(200).send({
-                            message: "el usuario que intenta registrar ya existe"
+                            message: "el usuario que intenta registrar ya existe",
+                            status:'repetido'
                         })
                     } else {
 
@@ -966,38 +970,7 @@ var controllers = {
             })
 
     },
-    eliminar: (req,res)=>{
-        
-
-        console.log("nombre" + req.params.nombre + req.params.apellido1 + req.params.apellido2);
-
-        Alumno.findOneAndDelete({
-            $and: [
-                { nombre: { $eq: req.params.nombre.toLowerCase() } },
-                { apellido1: { $eq: req.params.apellido1.toLowerCase() } },
-                { apellido2: { $eq: req.params.apellido2.toLowerCase() } },
-                { usuario: { $eq: req.params.usuario.toLowerCase() } }]
-        })
-        .exec ((err, user) => {
-            if (err) {
-                return res.status(500).send({
-                    message: 'Error en la petición'
-                });
-            }
-            if (!user) {
-                return res.status(404).send({
-                    message: 'El usuario no existe'
-                });
-            }
-
-            return res.status(404).send({
-                status: 'sucess'
-            });
-           
-
-        });
-    
-},
+  
 
     addoficialfiles:(req, res) =>{
         var userId= req.params.id;
